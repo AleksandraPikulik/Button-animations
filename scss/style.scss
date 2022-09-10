@@ -1,5 +1,199 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
+
+body {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100vh;
+	background-color: #333;
+	overflow: hidden;
+}
+
+button {
+	position: relative;
+	margin: 20px;
+	padding: 30px 50px;
+	background: none;
+	border: 1px solid white;
+	border-radius: 8px;
+	color: white;
+	font-size: 20px;
+	text-transform: uppercase;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+button::before,
+button::after {
+	display: block;
+	position: absolute;
+	content: '';
+	transition: 0.5s;
+	z-index: -1;
+}
+
+// slide
+
+.slide {
+	width: 180px;
+	height: 95px;
+}
+
+.slide::after {
+	height: 100%;
+	top: 0;
+	left: -10px;
+	border-left: 2px solid white;
+}
+.slide::before {
+	width: 100%;
+	top: -10px;
+	left: 0;
+	border-top: 2px solid white;
+	transition-delay: 0.05s;
+}
+.slide:hover::after {
+	left: 190px;
+}
+.slide:hover::before {
+	top: 100px;
+}
+
+.span1,
+.span2 {
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	transition: 0.5s;
+}
+
+.span1 {
+	left: 50%;
+}
+
+.span2 {
+	left: -50%;
+	transition-delay: 0.1s;
+}
+
+.slide:hover .span1 {
+	left: 150%;
+}
+.slide:hover .span2 {
+	left: 50%;
+}
+
+// slice
+
+.slice::before,
+.slice::after {
+	width: 100%;
+	height: 50%;
+	background-color: rgba(0, 255, 255, 0.37);
+}
+
+.slice::before {
+	top: 0;
+	left: -100%;
+}
+.slice::after {
+	bottom: 0;
+	right: -100%;
+}
+.slice:hover::before {
+	left: 0;
+}
+.slice:hover::after {
+	right: 0;
+}
+
+// hmm
+
+.hm {
+	border: none;
+	transition: 0.5s;
+}
+
+.hm:hover {
+	box-shadow: 2px 3px 0 rgba(255, 255, 255, 0.5),
+		inset 10px 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+// border
+
+.border {
+	border-radius: 0;
+	overflow: visible;
+	transition: 0.8s;
+}
+
+.border:hover {
+	color: rgb(65, 119, 83);
+	border: 1px solid transparent;
+}
+
+.border::before,
+.border::after {
+	width: 100%;
+	height: 100%;
+}
+
+.border::before {
+	top: 0;
+	left: 0;
+}
+
+.border:hover::before {
+	top: -10px;
+	left: -10px;
+	border-top: 3px solid rgb(65, 119, 83);
+	border-left: 3px solid rgb(65, 119, 83);
+}
+
+.border::after {
+	bottom: 0;
+	right: 0;
+}
+
+.border:hover::after {
+	bottom: -10px;
+	right: -10px;
+	border-bottom: 3px solid rgb(65, 119, 83);
+	border-right: 3px solid rgb(65, 119, 83);
+}
+
+// glass
+
+.glass::before {
+	top: -50%;
+	left: -30px;
+	height: 270%;
+	width: 150%;
+	box-shadow: -60px 0px 100px rgba(255, 255, 255, 0.514);
+	transform: rotate(30deg);
+}
+.glass:hover::before {
+	top: 0%;
+	left: 200%;
+}
+
+// LUB INNA METODA
+
+// .glass::before {
+// 	top: -30px;
+// 	left: -130px;
+// 	height: 160%;
+// 	width: 100px;
+// 	background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255,0));
+// 	transform: rotate(30deg);
+// }
+
+// .glass:hover::before {
+// 	left: 130%;
+// }
